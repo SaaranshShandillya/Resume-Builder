@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Resume</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container" style="font-size: 1.75vw;">
+        <h1 style="text-align: center; padding:2vw; font-size: 5vw "> Resume</h1>
+        <p class="display-4" style="font-size: 4vw">Personal Information:</p>
+        <p><b>Name:</b> {{name}}</p>
+        <p><b>Email Id: </b>{{email}}</p>
+        <p><b>Career Objective: <br> </b>{{Co}}</p><br>
+        <hr style="color: black; height:1vw ;">
+        
+      </div>
+      <div class="container">
+        <p class="display-4" style="font-size: 4vw">Academic Qualifications:</p>
+        <table class="table table-borderless table-hover table-responsive-lg" style="font-size: 1.5vw;">
+          <thead>
+            <tr>
+              <th>Course/ Degree</th>
+              <th>Board/ University/Instituion</th>
+              <th>Percentage/ Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10th Class</td>
+              <td>{{Ins1}}</td>
+              <td>{{Marks1}}</td>
+            </tr>
+            <tr>
+              <td>12th Class</td>
+              <td>{{Ins2}}</td>
+              <td>{{Marks2}}</td>
+            </tr>
+            <tr>
+              <td>{{Deg3}}</td>
+              <td>{{Ins3}}</td>
+              <td>{{Marks3}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr style="color: black; height:1vw ;">
+      </div>
+      
+      
+      <div class="container">
+        <p class="display-4"style="font-size: 4vw">Skills:</p>
+        <ul class="list-group list-group-flush " style="font-size: 1.5vw;">
+          <li class="list-group-item" style="border: 0 none;">	{{Sk1}}</li>
+          <li class="list-group-item"style="border: 0 none;">	{{Sk2}}</li>
+          <li class="list-group-item" style="border: 0 none;">	{{Sk3}}</li>
+          <li class="list-group-item" style="border: 0 none;">	{{Sk4}}</li>
+          <li class="list-group-item" style="border: 0 none;">	{{Sk5}} </li>
+          </ul>
+          <hr style="color: black; height:1vw ;">
+      </div>
+      
+
+      <div class="container">
+        <p class="display-4"style="font-size: 4vw">Acheivements:</p>
+        <ul class="list-group list-group-flush " style="font-size: 1.5vw;">
+          <li class="list-group-item" style="border: 0 none;">	{{Ach1}}</li>
+          <li class="list-group-item"style="border: 0 none;">	{{Ach2}}</li>
+          {% if form.POST != '' %}
+          <li class="list-group-item" style="border: 0 none;">	{{Ach3}}</li>
+          <li class="list-group-item" style="border: 0 none;">	{{Ach4}}</li>
+          <li class="list-group-item" style="border: 0 none;">	{{Ach5}} </li>
+          {% endif %}
+          </ul>
+          <hr style="color: black; height:1vw ;">
+      </div>
+    
+      <div class="container">
+        <p class="display-4"style="font-size: 4vw">Projects:</p>
+        <ul class="list-group list-group-flush " style="font-size: 1.5vw;">
+          <li class="list-group-item" style="border: 0 none;">	{{Prj1}}</li>
+          <li class="list-group-item"style="border: 0 none;">	{{Prj2}}</li>
+          <li class="list-group-item" style="border: 0 none;">	{{Prj3}}</li>
+          <li class="list-group-item" style="border: 0 none;">	{{Prj4}}</li>
+          <li class="list-group-item" style="border: 0 none;">	{{Prj5}} </li>
+        </ul>
+          <hr style="color: black; height:1vw ;">
+      </div>
+      
+      <div class="container">
+        <p class="display-4"style="font-size: 4vw">Previous Work Experience:</p><br><br>
+        <p style="font-size: 1.5vw;">{{WorkEx}}</p>
+        <hr style="color: black; height:1vw ;">
+      </div><br><br>
+
+      <div class="container">
+        <p class="display-4"style="font-size: 4vw">Certifications:</p>
+        <ul class="list-group list-group-flush " style="font-size: 1.5vw;">
+          <li class="list-group-item" style="border: 0 none;">	{{Cert1}}</li>
+          <li class="list-group-item"style="border: 0 none;">	{{Cert2}}</li>
+          <li class="list-group-item" style="border: 0 none;">	{{Cert3}}</li>
+        </ul>
+        <hr style="color: black; height:1vw ;">
+      </div>
+
+      <div class="container">
+        <p class="display-4" style="font-size: 4vw">Further contact details and References:</p><br><br>
+        <p style="font-size: 1.5vw;">{{Cont}}</p>
+      </div> <br><br><br>
+    
+      <div class="container " >
+      <button type="button" class="btn btn-success " onclick="window.print()" >Save page as PDF</button>
+      </div><br><br><br>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

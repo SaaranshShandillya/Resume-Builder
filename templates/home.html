@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Resume Builder</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <style>
+      body { 
+        background: url(https://images.pexels.com/photos/1084510/pexels-photo-1084510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        
+      }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-light navbar-light">
+        <ul class="navbar-nav">
+          <li class="nav-item active ml-auto" style="font-size: 1.5vw;">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item active" style="padding-left:83vw; font-size:1.5vw;">
+            <a class="nav-link" href="https://github.com/SaaranshShandillya/"><i class="fa fa-github"></i></a>
+          </li>
+
+          <li class="nav-item active" style= "font-size:1.5vw;">
+            <a class="nav-link" href="https://www.instagram.com/whyyysaaransh/"><i class="fa fa-instagram"></i></a>
+          </li>
+            
+          <li class="nav-item active" style= "font-size:1.5vw;">
+            <a class="nav-link" href="https://twitter.com/sundi_sometimes"><i class="fa fa-twitter"></i></a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="container" >
+        <h1 style="padding-top: 5vw;">Want to build out your resume, but dont't wan't to engage in any hastle?<br> Relax, we got you covered.</h1><br><br>
+        <p class="display-4" style="font-size: 3vw;"> Fill out the following details:</p>
+      </div><br><br><br>
+      <div class="container">
+
+        <h2>Basic information:</h2><br><br>
+        {% load widget_tweaks %}
+
+          <form method="post" action="{% url 'data' %}" >
+           {% csrf_token %}
+
+          {% if form.non_field_errors %}
+          <div class="alert alert-danger" role="alert">
+           {% for error in form.non_field_errors %}
+             {{ error }}
+           {% endfor %}
+             </div>
+              {% endif %}
+
+  {% for field in form.visible_fields %}
+    <div class="form-group">
+      {{ field.label_tag }}
+
+      {% if form.is_bound %}
+        {% if field.errors %}
+          {% render_field field class="form-control is-invalid" %}
+          {% for error in field.errors %}
+            <div class="invalid-feedback">
+              {{ error }}
+            </div>
+          {% endfor %}
+        {% else %}
+          {% render_field field class="form-control is-valid" %}
+        {% endif %}
+      {% else %}
+        {% render_field field class="form-control" %}
+      {% endif %}
+
+      {% if field.help_text %}
+        <small class="form-text text-muted">{{ field.help_text }}</small>
+      {% endif %}
+      </div>
+     {% endfor %}
+
+     <br><br><h2>Academic Qualifications:</h2><br><br>
+     {% if form2.non_field_errors %}
+          <div class="alert alert-danger" role="alert">
+           {% for error in form2.non_field_errors %}
+             {{ error }}
+           {% endfor %}
+             </div>
+              {% endif %}
+
+  {% for field in form2.visible_fields %}
+    <div class="form-group">
+      {{ field.label_tag }}
+
+      {% if form2.is_bound %}
+        {% if field.errors %}
+          {% render_field field class="form-control is-invalid" %}
+          {% for error in field.errors %}
+            <div class="invalid-feedback">
+              {{ error }}
+            </div>
+          {% endfor %}
+        {% else %}
+          {% render_field field class="form-control is-valid" %}
+        {% endif %}
+      {% else %}
+        {% render_field field class="form-control" %}
+      {% endif %}
+
+      {% if field.help_text %}
+        <small class="form-text text-muted">{{ field.help_text }}</small>
+      {% endif %}
+      </div>
+     {% endfor %}
+
+     <br><br><h2>Skills: (Please write atleast two)</h2><br><br>
+     {%for field in form3.visible_fields%}
+       <div class="form-group">
+         {{field.label_tag}}
+         {% render_field field class="form-control"   %}
+       </div>
+      
+      {% endfor %}
+      <br><br><h2>Acheivements: (Please write atleast two)</h2><br><br>
+      {%for field in form4.visible_fields%}
+       <div class="form-group">
+         {{field.label_tag}}
+         {% render_field field class="form-control"   %}
+       </div>
+       {% endfor %}
+
+       <br><br><h2>Projects and Previous Work Experience:</h2><br>
+       <p class="display-4" style="font-size: 1.75vw;">Please mention atleast two projects .</p>
+      {%for field in form5.visible_fields%}
+       <div class="form-group">
+         {{field.label_tag}}
+         {% render_field field class="form-control"   %}
+       </div>
+       {% endfor %}
+
+       <br><br><h2>Certifications:</h2><br>
+       <p class="display-4" style="font-size: 1.75vw;">Please mention atleast one certification .</p>
+      {%for field in form6.visible_fields%}
+       <div class="form-group">
+         {{field.label_tag}}
+         {% render_field field class="form-control"   %}
+       </div>
+       {% endfor %}
+
+       <br><br><h2>Further details:</h2><br><br>
+      {%for field in form7.visible_fields%}
+       <div class="form-group">
+         {{field.label_tag}}
+         {% render_field field class="form-control"   %}
+       </div>
+       {% endfor %}
+
+
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
